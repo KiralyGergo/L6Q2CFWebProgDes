@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .grid {
+                margin-top: 2rem;
+                display: grid;
+                grid-template-columns: 1fr 2.5fr;
+                grid-template-rows: 1fr 1fr 1fr;
+                gap: 1rem;
+                width: 40rem;
+            }
+
+            .button {
+                background-repeat: no-repeat;
+                width: 55px; 
+                height: 55px; 
+                border: none; 
+                display: inline-block; 
+                overflow: hidden; 
+                cursor: pointer; 
+            }
+
+            footer {
+                border-top: 4px solid gray;
+                padding-top: 2rem;
+                margin-top: 2rem;
+                width: 37.5rem;
+                text-align: right;
+            }
+
+        </style>
+    </head>
+<body>
+    <header>
+        <h1>Videó Lejátszása_L6Q2CF</h1>
+    </header>
+    <section>
+        <video src="l6q2cf_video.mp4" autoplay="false" controls width="600"></video>
+        <div class="grid">
+            <div>
+                <button class="button" style="background: url('kepek/start.png');background-size: contain;" id="start"></button>
+                <button class="button" style="background: url('kepek/stop.png');background-size: contain;" id="stop"></button>
+            </div>
+            <div>
+                <button class="button" style="background: url('kepek/startstop.png');background-size: contain;" id="startstop"></button>
+            </div>
+            <div>
+                <button class="button" style="background: url('kepek/mute.png');background-size: contain;" id="mute"></button>
+                <button class="button" style="background: url('kepek/quiet.png');background-size: contain;" id="quite"></button>
+                <button class="button" style="background: url('kepek/loud.png');background-size: contain;" id="loud"></button>
+            </div>
+            <div>
+                <button class="button" style="background: url('kepek/veryslow.png');background-size: contain;" id="veryslow"></button>
+                <button class="button" style="background: url('kepek/slow.png');background-size: contain;" id="slow"></button>
+                <button class="button" style="background: url('kepek/normal.png');background-size: contain;" id="normal"></button>
+                <button class="button" style="background: url('kepek/fast.png');background-size: contain;" id="fast"></button>
+                <button class="button" style="background: url('kepek/veryfast.png');background-size: contain;" id="veryfast"></button>
+            </div>
+            <div>
+                <button class="button" style="background: url('kepek/small.png');background-size: contain;" id="small"></button>
+                <button class="button" style="background: url('kepek/normalize.png');background-size: contain;" id="normalize"></button>
+                <button class="button" style="background: url('kepek/big.png');background-size: contain;" id="big"></button>
+            </div>
+            <div>
+                <button class="button" style="background: url('kepek/hasitended.png');background-size: contain;" id="hasitended"></button>
+                <button class="button" style="background: url('kepek/length.png');background-size: contain;" id="length"></button>
+                <button class="button" style="background: url('kepek/start.png');background-size: contain;" id="currently"></button>
+            </div>
+        </div>
+    </section>
+    <footer>
+        Forrás: <a href="https://www.w3schools.com/html/html5_video.asp">https://www.w3schools.com/html/html5_video.asp</a>
+    </footer>
+    <script>
+        let btnClick = (id, onclick) => document.getElementById(id).addEventListener("click", onclick);
+
+        let video = document.querySelector("video");
+
+        btnClick("start", () => video.play());
+        btnClick("stop", () => video.pause());
+        btnClick("startstop", () => video.paused ? video.play() : video.pause());
+
+        btnClick("mute", () => video.volume = 0);
+        btnClick("quite", () => video.volume = 0.5);
+        btnClick("loud", () => video.volume = 1);
+
+        btnClick("veryslow", () => video.playbackRate = 0.5);
+        btnClick("slow", () => video.playbackRate = 0.75);
+        btnClick("normal", () => video.playbackRate = 1);
+        btnClick("fast", () => video.playbackRate = 1.25);
+        btnClick("veryfast", () => video.playbackRate = 1.5);
+
+        btnClick("small", () => video.width = 400);
+        btnClick("normalize", () => video.width = 600);
+        btnClick("big", () => video.width = 800);
+
+        btnClick("hasitended", () => alert(video.ended));
+        btnClick("length", () => alert(video.duration));
+        btnClick("currently", () => alert(video.currentTime));
+    </script>
+</body>
+</html>
